@@ -46,17 +46,13 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
       </plugin>
+      <!-- No Main-Class in the manifest: with one, `hadoop jar d5-311.jar edu.nyu.pawprint.d5.D5Pipeline ...`
+           (as in scripts/run_d5_hdfs.sh and the README) passes the class name to the default main
+           as an argument and the pipeline exits with its usage message. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.3.0</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>edu.nyu.pawprint.d5.D5Pipeline</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
       </plugin>
     </plugins>
   </build>
